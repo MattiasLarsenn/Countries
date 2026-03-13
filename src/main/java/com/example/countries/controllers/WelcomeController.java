@@ -11,4 +11,10 @@ public class WelcomeController
     {
         return "Welcome from Azure CI/CD test!";
     }
+
+    @GetMapping("/Hello")
+    public String hello()
+    {
+        return "Hello, this is the hello endpoint";
+    }
 }
