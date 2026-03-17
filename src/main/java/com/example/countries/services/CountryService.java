@@ -19,7 +19,8 @@ public class CountryService {
         return countryRepository.findAll();
     }
 
-    public String testConnection() {
+    public String testConnection()
+    {
         return countryRepository.testConnection();
     }
 }

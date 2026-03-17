@@ -25,7 +25,8 @@ public class CountryController {
 
     @GetMapping("/db-test")
     @ResponseBody
-    public String dbTest() {
+    public String dbTest()
+    {
         return countryService.testConnection();
     }
 

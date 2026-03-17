@@ -39,7 +39,8 @@ public class CountryRepository {
 
     public String testConnection()
     {
-        try (Connection connection = DriverManager.getConnection(dbUrl, username, password)) {
+        try (Connection connection = DriverManager.getConnection(dbUrl, username, password))
+        {
             return "CONNECTED";
         } catch (Exception e) {
             return e.getClass().getName() + " -> " + e.getMessage();
