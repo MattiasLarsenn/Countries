@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CountryRepository {
+public class CountryRepository
+{
     @Value("${spring.datasource.url}")
     private String dbUrl;
     @Value("${spring.datasource.username}")
@@ -17,20 +18,24 @@ public class CountryRepository {
     @Value("${spring.datasource.password}")
     private String password;
 
-    public List<Country> findAll() {
+    public List<Country> findAll()
+    {
         List<Country> countries = new ArrayList<>();
         String sql = "SELECT * FROM countries";
 
-        try (Connection connection = DriverManager.getConnection(dbUrl, username, password)) {
+        try (Connection connection = DriverManager.getConnection(dbUrl, username, password))
+        {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
-            while (resultSet.next()) {
+            while (resultSet.next())
+            {
                 Country country = new Country(resultSet.getLong("id"), resultSet.getString("name"));
                 countries.add(country);
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -39,9 +44,11 @@ public class CountryRepository {
 
     public String testConnection()
     {
-        try (Connection connection = DriverManager.getConnection(dbUrl, username, password)) {
+        try (Connection connection = DriverManager.getConnection(dbUrl, username, password))
+        {
             return "CONNECTED";
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             return e.getClass().getName() + " -> " + e.getMessage();
         }
     }

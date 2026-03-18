@@ -10,22 +10,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @RestController
-public class CountryController {
+public class CountryController
+{
 
     private final CountryService countryService;
 
-    public CountryController(CountryService countryService) {
+    public CountryController(CountryService countryService)
+    {
         this.countryService = countryService;
     }
 
     @GetMapping("/countries")
-    public List<Country> getAllCountries() {
+    public List<Country> getAllCountries()
+    {
         return countryService.getAllCountries();
     }
 
     @GetMapping("/db-test")
     @ResponseBody
-    public String dbTest() {
+    public String dbTest()
+    {
         return countryService.testConnection();
     }
 
